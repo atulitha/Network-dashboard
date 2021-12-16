@@ -1,0 +1,128 @@
+{% extends "base_layout.html" %} {% block title %}Button{% endblock %} {% block content %}
+
+<div class="loader_body" id="test" style="display:none;">
+    <div class="load">
+        <div class="gear one">
+            <svg id="yellow" viewbox="0 0 100 100" fill="#FFCD5C">
+            <path d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z"></path>
+          </svg>
+        </div>
+        <div class="gear two">
+            <svg id="green" viewbox="0 0 100 100" fill="#33cc33">
+            <path d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z"></path>
+          </svg>
+        </div>
+        <div class="gear three">
+            <svg id="blue" viewbox="0 0 100 100" fill="#0066cc">
+            <path d="M97.6,55.7V44.3l-13.6-2.9c-0.8-3.3-2.1-6.4-3.9-9.3l7.6-11.7l-8-8L67.9,20c-2.9-1.7-6-3.1-9.3-3.9L55.7,2.4H44.3l-2.9,13.6      c-3.3,0.8-6.4,2.1-9.3,3.9l-11.7-7.6l-8,8L20,32.1c-1.7,2.9-3.1,6-3.9,9.3L2.4,44.3v11.4l13.6,2.9c0.8,3.3,2.1,6.4,3.9,9.3      l-7.6,11.7l8,8L32.1,80c2.9,1.7,6,3.1,9.3,3.9l2.9,13.6h11.4l2.9-13.6c3.3-0.8,6.4-2.1,9.3-3.9l11.7,7.6l8-8L80,67.9      c1.7-2.9,3.1-6,3.9-9.3L97.6,55.7z M50,65.6c-8.7,0-15.6-7-15.6-15.6s7-15.6,15.6-15.6s15.6,7,15.6,15.6S58.7,65.6,50,65.6z"></path>
+          </svg>
+        </div>
+    </div>
+    <div class="text " style="text-align: center">loading</div>
+</div>
+<!----------------------------------------------------------------------------------------------------------------------------->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">ALA SYSLOGS SEARCH</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Parameter for Kusto Query
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form role="form " action="{{url_for('direct')}}" method="POST" id="myDiv" style="display:initial">
+                            <!-- <div class="form-group autosized">
+                                <label>User Name</label>
+                                <input class="form-control" type = "text" name = "username"><br>
+                                <p class="label label-info">Enter User Name SSH Device</p>
+                            </div>
+                            <div class="form-group autosized">
+                                <label>Password</label>
+                                <input class="form-control" type = "text" name = "password"><br>
+                                <p class="label label-info">Enter Password SSH Device</p>
+                                <p class="label label-warning">Note* Password wont be stored</p>
+                            </div> -->
+                            <div class="form-group autosized">
+                                <label>TIME GENERATED</label><br>
+                                <label class="label label-info"> Use ("h" for HOURS &  "d" for Days)</label >
+                                <br><input type="text" name="HOURS"> <br> 
+                                                                OR
+							</div>
+                            <div class="form-group autosized">
+                                <label>IP Address</label><br>
+                                <p class="label label-info">Enter IP Address</p><br>
+                                <input type="text" id="ip" name="ip" placeholder="255.255.255.255" pattern="^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.( 
+                                        25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.( 
+                                        25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.( 
+                                        25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$" size="25"><br>
+                                <!--<textarea class="form-control" rows="2" type = "text" name = "Hostname"></textarea><br>-->
+                                OR
+                            </div>
+                            <!--<div class="form-group autosized">
+                                <label>IP Address</label><br>
+                                <p class="label label-info">Enter IP Address</p>
+                                <textarea class="form-control" rows="2" type="text" name="Hostname"></textarea><br> OR
+                            </div>-->
+                            <div class="form-group autosized">
+                                <label>Computer</label><br>
+                                <p class="label label-info">Hostname or DeviceName</p><br>
+                                <input type="text" name="Hostname" pattern="^[ A-Za-z0-9.-]*$" size="25"><br>
+                                <!--<textarea class="form-control" rows="2" type="text" name="Command"></textarea><br>-->OR
+                            </div>
+                            <div class="form-group autosized">
+                                <label>TIME GENERATED</label><br>
+                                <p class="label label-info">IN DAYS</p><br>
+                                <label for="from">From:</label>
+                                <input type="date" id="fdate" name="fdate"><br>
+                                <label for="birthday">To:</label>
+                                <input type="date" id="todate" name="todate"><br> OR
+                            </div>
+                            <div class="form-group autosized">
+                                <label>SYS LOG MESSAGE</label><br>
+                                <p class="label label-info">SYS LOG MESSAGE OR KEY WORD IN MESSAGE</p><br>
+                                <textarea class="form-control" rows="2" type="text" name="Command"></textarea><br> OR
+                            </div>
+                            <div class="form-group autosized">
+                                <label>SUMMERIZE COUNT BY </label><br>
+                                <p class="label label-info">SUMMERIZE COUNT BY</p><br>
+                                <select class="ui search dropdown" type="text" name="scount" onchange='CheckLocation(this.value);'>
+                                    <option value="" disabled selected>Select Option</option>
+                                    {% for line in content %}
+                                    
+                                    <option value="{{line}}">{{line}}</option>
+                                    {% endfor %}
+                                </select>
+                                <!--<textarea class="form-control" rows="2" type="text" name="scount"></textarea><br>-->
+                            </div>
+
+                            <button type="submit" class="btn btn-default">Submit Button</button>
+                            <button type="reset" class="btn btn-default">Reset Button</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<script>
+    function CheckLocation(val) {
+        var element = document.getElementById('loc');
+        if (val == 'Pick a location' || val == 'other')
+            element.style.display = 'block';
+        else
+            element.style.display = 'none';
+    }
+
+    function showPage() {
+        document.getElementById("test").style.display = "block";
+        document.getElementById("myDiv").style.display = "none";
+    }
+</script>

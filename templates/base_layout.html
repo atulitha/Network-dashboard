@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Allenh">
+    <title>{% block title %}{% endblock %}- Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/metisMenu.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/sb-admin-2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/loader.css') }}">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    {% endblock %}
+</head>
+
+<body class="bg">
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index">NETWORK DASHBOARD</a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav bg" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+
+                        <li>
+                            <a href="https://app.powerbi.com/groups/0844c21d-1a95-4be9-b140-169d6960c508/reports/b2bf3123-088b-4e52-86b8-ce49b5a34d0b/ReportSectiond0234c740e21c829a83a?ctid=2e319086-9a26-46a3-865f-615bed576786"><i class="fa fa-dashboard fa-fw"></i><divstyle="font-size: 120%;> AERO</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dashboard fa-fw"></i>NETWORK TOOLS<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index"><i class="fa fa-dashboard fa-fw"></i> SSH SCRIPT</a>
+                                    <a href="https://network-diagram.azurewebsites.net"><i class="fa fa-dashboard fa-fw"></i> NETWORK DIAGRAM</a>
+                                    <a href="index"><i class="fa fa-dashboard fa-fw"></i> ALA SYSLOGS</a>
+                                    <a href="index"><i class="fa fa-dashboard fa-fw"></i> RUN BOOK</a>
+                                    <a href="index"><i class="fa fa-dashboard fa-fw"></i> CHECKLIST</a>
+                                    <a href="index"><i class="fa fa-dashboard fa-fw"></i> TRACE-ROUTE & PING</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> WORK FLOW AUTOMATION<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index"><i class="fa fa-dashboard fa-fw"></i> WORK FLOW 1</a>
+                                    <a href="index"><i class="fa fa-dashboard fa-fw"></i> WORK FLOW 2</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/credits"><i class="fa fa-dashboard fa-fw"></i><divstyle="font-size: 120%;> credits</span></a>
+
+                            <li>
+
+
+                                <!--                                <li>-->
+                                <!--                                    <a href="morris">Morris.js Charts</a>-->
+                                <!--                                </li>-->
+                                <!--                            </ul>-->
+                                <!--                            &lt;!&ndash; /.nav-second-level &ndash;&gt;-->
+                                <!--                        </li>-->
+                                <!--                        <li>-->
+                                <!--                            <a href="tables"><i class="fa fa-table fa-fw"></i> Tables</a>-->
+                                <!--                        </li>-->
+                                <!--                        <li>-->
+                                <!--                            <a href="forms"><i class="fa fa-edit fa-fw"></i> Forms</a>-->
+                                <!--                        </li>-->
+                                <!--                        <li>-->
+                                <!--                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>-->
+                                <!--                            <ul class="nav nav-second-level">-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="panels-wells">Panels and Wells</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="buttons">Buttons</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="notifications">Notifications</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="typography">Typography</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="icons"> Icons</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="grid">Grid</a>-->
+                                <!--                                </li>-->
+                                <!--                            </ul>-->
+                                <!--                            &lt;!&ndash; /.nav-second-level &ndash;&gt;-->
+                                <!--                        </li>-->
+                                <!--                        <li>-->
+                                <!--                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>-->
+                                <!--                            <ul class="nav nav-second-level">-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="#">Second Level Item</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="#">Second Level Item</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="#">Third Level <span class="fa arrow"></span></a>-->
+                                <!--                                    <ul class="nav nav-third-level">-->
+                                <!--                                        <li>-->
+                                <!--                                            <a href="#">Third Level Item</a>-->
+                                <!--                                        </li>-->
+                                <!--                                        <li>-->
+                                <!--                                            <a href="#">Third Level Item</a>-->
+                                <!--                                        </li>-->
+                                <!--                                        <li>-->
+                                <!--                                            <a href="#">Third Level Item</a>-->
+                                <!--                                        </li>-->
+                                <!--                                        <li>-->
+                                <!--                                            <a href="#">Third Level Item</a>-->
+                                <!--                                        </li>-->
+                                <!--                                    </ul>-->
+                                <!--                                    &lt;!&ndash; /.nav-third-level &ndash;&gt;-->
+                                <!--                                </li>-->
+                                <!--                            </ul>-->
+                                <!--                            &lt;!&ndash; /.nav-second-level &ndash;&gt;-->
+                                <!--                        </li>-->
+                                <!--                        <li>-->
+                                <!--                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>-->
+                                <!--                            <ul class="nav nav-second-level">-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="blank">Blank Page</a>-->
+                                <!--                                </li>-->
+                                <!--                                <li>-->
+                                <!--                                    <a href="login">Login Page</a>-->
+                                <!--                                </li>-->
+                                <!--                            </ul>-->
+                                <!--                            &lt;!&ndash; /.nav-second-level &ndash;&gt;-->
+                                <!--                        </li>-->
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            {% with messages = get_flashed_messages() %} {% if messages %}
+            <div class="container">>
+                <ul class="flashes">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %} {% endwith %} {% block content %} {% endblock %}
+        </div>
+    </div>
+    {% block js %}
+    <script src="{{ url_for('serveStaticResource', resource='js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('serveStaticResource', resource='js/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('serveStaticResource', resource='js/metisMenu.min.js')}}"></script>
+    <script src="{{ url_for('serveStaticResource', resource='js/sb-admin-2.js')}}"></script>
+    {% endblock %}
+</body>
+
+</html>

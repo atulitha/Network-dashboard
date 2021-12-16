@@ -1,0 +1,200 @@
+{% extends "base_layout.html" %} {% block title %}Welcome{% endblock %} {% block head %} {{ super() }}
+<link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/timeline.css') }}">
+<link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/morris.css') }}"> {% endblock %} {% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Network Tools</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-terminal fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">SSH SCRIPT</div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <a href="/ssh">
+                <div class="panel-footer">
+                    <span class="pull-left">View Scripts</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">ALA SYSLOGS</div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <a href="/kustoquery">
+                <div class="panel-footer">
+                    <span class="pull-left">View Logs</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-exchange fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <div style="font-size: 180%;">TRACE-ROUTE & PING</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-check-square-o fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">Check List</div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <a href="/check">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+<!-- /.row -->
+
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-terminal fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div style="font-size: 34px;">NETWORK DIAGRAM</div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <a href="NetworkDiagramIndex">
+                <div class="panel-footer">
+                    <span class="pull-left">View Diagrams</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-check-square-o fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div style="font-size: 240%;">MERAKI API CALLS</div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <a href="/kusto">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-share-alt fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <div style="font-size: 160%;">RUN BOOK FOR SHOW COMMANDS</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Scripts</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-dashboard fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div style="font-size: 300%;"> AERO </div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <a href="https://app.powerbi.com/groups/0844c21d-1a95-4be9-b140-169d6960c508/reports/b2bf3123-088b-4e52-86b8-ce49b5a34d0b/ReportSectiond0234c740e21c829a83a?ctid=2e319086-9a26-46a3-865f-615bed576786">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- /.row -->{% endblock %} {% block js %} {{ super() }}
+<script src="{{ url_for('serveStaticResource', resource='js/raphael-min.js')}}"></script>
+<script src="{{ url_for('serveStaticResource', resource='js/morris.min.js')}}"></script>
+<script src="{{ url_for('serveStaticResource', resource='js/morris-data.js')}}"></script>
+{% endblock %}

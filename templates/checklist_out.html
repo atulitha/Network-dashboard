@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+
+.header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+.row1 {
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column1 {
+  flex: 50%;
+  padding: 5px;
+}
+.row2 {
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column2 {
+  flex: 50%;
+  padding: 5px;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 85px; 
+  /* Should be removed. Only for demonstration */
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left {
+    width: 20%;
+    }
+    .middle {
+    width: 80%;
+    background-color:#003399;
+    font-size: 10px;
+    }
+  
+#button {
+     line-height: 12px;
+     width: 137px;
+     font-size: 8pt;
+     font-family: tahoma;
+     margin-top: 25px;
+     margin-right: 2px;
+     position:absolute;
+     top:0;
+     right:0;
+ }  
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="column left" >
+      <!--<img src="{{url_for('static', filename='MicrosoftTeams-image.png')}}" style="height: 87px;width: 100%;"  />-->
+    </div>
+    <div class="column middle">
+      <h1 style="color:white">LAN and WAN Analysis </h1>
+  </div>
+</div>
+<br>
+<form action='{{ url_for("down")}}' method='POST'>
+<div><input id="button" type="submit" value="Download Report"></div>
+</form>
+<!--<h2>Details  for the Site {{name}}</h2>-->
+<br>
+<a href="#dd"> Device Details </a><br>
+<a href="#t2"> Portchannel summary </a><br>
+<a href="#t4"> Ethernet Interfaces </a><br>
+<a href="#t3"> Neighbor Devices </a><br>
+<h2 id='dd'>Device Details</h2>
+	{% for table in primary %}
+            {{prim_titles[loop.index]}}
+            {{ table|safe }}
+	{% endfor %}
+<br><h2 id='t2'>PortChannel Summary</h2><br>	
+	{% for table in etherChanl %}
+            {{etherChanl_titles[loop.index]}}
+            {{ table|safe }}
+	{% endfor %}
+<br><h2 id='t4'>Ethernet Interfaces</h2><br>
+	{% for table in etherInf %}
+            {{etherInf_titles[loop.index]}}
+			
+            {{ table|safe }}
+	{% endfor %}
+<br><h2 id='t3'>Neighbor Devices</h2><br>
+	{% for table in neigh %}
+            {{neigh_titles[loop.index]}}
+            {{ table|safe }}
+	{% endfor %}
+
+</body>
+</html>

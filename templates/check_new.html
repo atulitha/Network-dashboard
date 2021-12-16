@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+
+.header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+.row1 {
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column1 {
+  flex: 50%;
+  padding: 5px;
+}
+.row2 {
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column2 {
+  flex: 50%;
+  padding: 5px;
+}
+table {
+	border: 1px solid black;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+border: 1px solid black;
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 85px; 
+  /* Should be removed. Only for demonstration */
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left {
+    width: 20%;
+    }
+    .middle {
+    width: 80%;
+    background-color:#003399;
+    font-size: 10px;
+    }
+  
+#button {
+     line-height: 12px;
+     width: 137px;
+     font-size: 8pt;
+     font-family: tahoma;
+     margin-top: 25px;
+     margin-right: 2px;
+     position:absolute;
+     top:0;
+     right:0;
+ }
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  right:90;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="column left" >
+      <!--<img src="{{url_for('static', filename='MicrosoftTeams-image.png')}}" style="height: 87px;width: 100%;"  />-->
+    </div>
+    <div class="column middle">
+      <h1 style="color:white">LAN and WAN Analysis </h1>
+  </div>
+</div>
+<br>
+<form action='{{ url_for("fullreport")}}' method='POST'>
+<div><input id="button" type="submit" value="Download Report"></div>
+</form>
+<!--<h2>Details  for the Site {{name}}</h2>-->
+<br>
+<a href="#dd"> Device Details </a><br>
+<a href="#t2"> Portchannel summary </a><br>
+<a href="#t3"> WAN& LAN Links </a><br>
+<a href="#t4"> Ethernet Interfaces </a>
+<h2 id='dd'>Device Details</h2>
+<table  style="border: 1px solid black;">
+	<tr>
+		<th>Device name</th>
+		<th>Ip address</th>
+        <th>deviceType</th>
+        <th>productFamily</th>
+        <th>Model</th>
+		<th>Serial Number</th>
+		<th>Software Version</th>
+		<th>upTime</th>
+	</tr>
+    {% for row in devicedata %}
+    <tr >
+		{% if row[7] > 365 %}
+		<td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
+		<td>{{row[2]}}</td>
+        <td>{{row[3]}}</td>
+        <td>{{row[4]}}</td>
+        <td>{{row[5]}}</td>
+		<td>{{row[6]}}</td>
+        <td class="tooltip"style ="background-color: yellow">{{ row[7] }}<span class="tooltiptext">more than a year</span></td>
+		
+        {% endif %}
+    </tr>
+    {% endfor %}
+	
+</table>
+<h2 id='t2'>PortChannel Summary</h2><br>
+<i>
+  <table  style="border: 1px solid black;">
+  <tr>
+		<th>Device name</th>
+          <th>ipAddress	</th>
+		  <th>channelGroupId</th>
+		  <th>name</th>
+		  <th>numberOfMembers</th>
+    </tr>
+    {% for row in etherChannels %}
+    <tr >
+            {% if 2 > row[4] |int %}
+				<td>{{row[0]}}</td>
+				  <td>{{row[1]}}</td>
+				  <td>{{row[2]}}</td>
+				  <td>{{row[3]}}</td>
+                <td class="tooltip" style ="background-color: red"><font color='white'>{{ row[4] }}<span class="tooltiptext">port channels aren't configured</span></font></td>
+            
+            {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+<h2 id='t4'>Ethernet Interfaces</h2>
+<table  style="border: 1px solid black;">
+	<tr>
+				<th>Device name</th>
+			<th>ipAddress</th>
+			  <th>name</th>
+			  <th>adminStatus</th>
+			  <th>duplexMode</th>
+	</tr>
+    {% for row in ethernetInterfaces %}
+    <tr >
+            {% if  row[4]!='FULLDUPLEX' and row[4]!='AUTO_NEGOTIATE' %}
+				  <td>{{row[0]}}</td>
+				  <td>{{row[1]}}</td>
+				  <td>{{row[2]}}</td>
+				  <td>{{row[3]}}</td>
+                <td class="tooltip" style ="background-color: red"><font color='white'>{{ row[4] }}<span class="tooltiptext">Duplex issue</span></font></td>
+            
+            {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

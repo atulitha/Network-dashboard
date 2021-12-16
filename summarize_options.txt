@@ -1,0 +1,15 @@
+TenantId
+SourceSystem
+TimeGenerated [UTC]
+Computer
+EventTime [UTC]
+Facility
+HostName
+SeverityLevel
+SyslogMessage
+ProcessID
+HostIP
+ProcessName
+MG
+Type
+_ResourceId

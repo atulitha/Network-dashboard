@@ -1,0 +1,45 @@
+{% extends "base_layout.html" %} {% block title %}Tables{% endblock %} 
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/responsive.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('serveStaticResource', resource='css/dataTables.bootstrap.css') }}">
+{% endblock %} 
+{% block content %}
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading ">
+                SSH Details   <th>{{form["Host name/IP"]}}</th>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                {% for key,value in form.items() %}
+                                <th>{{key}}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="success">
+                                {% for value in form.values() %}
+                                <td>{{value}}</td>
+                                {% endfor %}
+                                
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-6 -->
+</div>
+
+{% endblock %}
