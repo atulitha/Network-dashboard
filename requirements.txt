@@ -1,8 +1,8 @@
-Flask==1.1.2
-netmiko==3.4.0
-pandas==1.2.4
-requests==2.25.1
+Flask
+netmiko
+pandas
+requests
 numpy
 xlsxwriter
-xlrd==1.2.0
+xlrd
 anytree
